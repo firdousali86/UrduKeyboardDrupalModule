@@ -1,0 +1,120 @@
+<?php
+
+function urduKeyboard_form_comment_form_alter(&$form)
+{
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/k.js');
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/keyboard.js');
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/urdu.js');
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/1.js');
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/2.js');
+	drupal_add_css('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/css/urduKeyboard.css');
+
+	$insertUrduKeyboard = print_image_map('edit-comment');							
+	$form['urduKeyboard'] = array('#type' => 'item', '#value' => $insertUrduKeyboard, '#weight' => 0);
+}
+
+function urduKeyboard_form_forum_node_form_alter(&$form)
+{
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/k.js');
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/keyboard.js');
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/urdu.js');
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/1.js');
+	drupal_add_js('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/2.js');
+	drupal_add_css('sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/css/urduKeyboard.css');
+	
+	$insertUrduKeyboard = print_image_map('edit-body');							
+	$form['urduKeyboard'] = array('#type' => 'item', '#value' => $insertUrduKeyboard, '#weight' => 0);
+}
+
+
+function print_image_map($instanceName)
+{
+	$keyboardImagePath = base_path() . 'sites/all/modules/custom/urduKeyboard/urduKeyboardSupport/images/k.gif';
+		
+	$withJquery = '	
+	<script> 
+	$(function() {
+		$( "#draggable" ).draggable();
+	});
+	</script> 
+	<script type="text/javascript">
+	 $(document).ready(function()
+{
+  //hide the all of the element with class msg_body
+  $(".mydiv").hide();
+  //toggle the componenet with class msg_body
+  $(".urdulinkhead").click(function()
+  {
+    $(this).next(".mydiv").slideToggle(600);
+  });
+});
+	</script> 
+	<div class="demo">
+
+<div id="draggable" class="ui-widget-content">
+	<div class="urdulinkhead" style="width:450;"><a class="pressToShow" onclick="setName(FCKeditorAPI.GetInstance(\''.$instanceName.'\'))" href="javascript:;">Urdu keyboard</a> </div>
+			<div id="mydiv" class="urdulinkbody"> 
+				<map name="FPMap0"> 
+                <area href="Javascript:hurf(\'zal\')" shape="rect" coords="4, 8, 33, 31"> 
+                <area coords="38, 5, 64, 32" shape="rect" href="Javascript:hurf(\'dhal\')"> 
+                <area href="Javascript:hurf(\'dal\')" shape="rect" coords="70, 7, 94, 29"> 
+                <area coords="102, 5, 129, 30" shape="rect" href="Javascript:hurf(\'khay\')"> 
+                <area href="Javascript:hurf(\'hay1\')" shape="rect" coords="135, 6, 160, 30"> 
+                <area href="Javascript:hurf(\'chay\')" shape="rect" coords="165, 8, 189, 30"> 
+                <area href="Javascript:hurf(\'jim\')" shape="rect" coords="199, 6, 222, 30"> 
+                <area href="Javascript:hurf(\'say\')" shape="rect" coords="229, 8, 254, 28"> 
+                <area href="Javascript:hurf(\'thay\')" shape="rect" coords="262, 9, 286, 29"> 
+                <area href="Javascript:hurf(\'tay\')" shape="rect" coords="293, 7, 320, 29"> 
+                <area href="Javascript:hurf(\'pay\')" shape="rect" coords="324, 7, 351, 32"> 
+                <area href="Javascript:hurf(\'bay\')" shape="rect" coords="357, 8, 380, 29"> 
+                <area href="Javascript:hurf(\'alif\')" shape="rect" coords="389, 7, 414, 30"> 
+                <area href="Javascript:hurf(\'alifmada\')" shape="rect" coords="422, 7, 444, 32"> 
+                <area href="Javascript:hurf(\'qaf\')" shape="rect" coords="6, 38, 29, 60"> 
+                <area coords="39, 38, 61, 60" shape="rect" href="Javascript:hurf(\'fay\')"> 
+                <area href="Javascript:hurf(\'gain\')" shape="rect" coords="71, 38, 93, 61"> 
+                <area href="Javascript:hurf(\'ain\')" shape="rect" coords="101, 40, 124, 59"> 
+                <area coords="132, 38, 158, 59" shape="rect" href="Javascript:hurf(\'zhoy\')"> 
+                <area href="Javascript:hurf(\'thoy\')" shape="rect" coords="166, 38, 188, 59"> 
+                <area href="Javascript:hurf(\'duad\')" shape="rect" coords="199, 39, 218, 57"> 
+                <area href="Javascript:hurf(\'suad\')" shape="rect" coords="230, 40, 255, 58"> 
+                <area href="Javascript:hurf(\'sheen\')" shape="rect" coords="262, 40, 284, 60"> 
+                <area href="Javascript:hurf(\'seen\')" shape="rect" coords="293, 37, 317, 59"> 
+                <area href="Javascript:hurf(\'zhay\')" shape="rect" coords="326, 39, 350, 59"> 
+                <area href="Javascript:hurf(\'zay\')" shape="rect" coords="358, 41, 379, 58"> 
+                <area href="Javascript:hurf(\'rahy\')" shape="rect" coords="391, 39, 412, 60"> 
+                <area href="Javascript:hurf(\'ray\')" shape="rect" coords="422, 40, 443, 59"> 
+                <area href="Javascript:hurf(\'bariya\')" shape="rect" coords="5, 68, 30, 86"> 
+                <area href="Javascript:hurf(\'ya\')" shape="rect" coords="38, 69, 63, 89"> 
+                <area href="Javascript:hurf(\'yamada\')" shape="rect" coords="71, 67, 93, 88"> 
+                <area href="Javascript:hurf(\'dochachmihay\')" shape="rect" coords="102, 69, 126, 86"> 
+                <area href="Javascript:hurf(\'hay\')" shape="rect" coords="133, 69, 158, 89"> 
+                <area href="Javascript:hurf(\'hamza\')" shape="rect" coords="165, 68, 188, 90"> 
+                <area href="Javascript:hurf(\'wowmada\')" shape="rect" coords="198, 67, 221, 91"> 
+                <area href="Javascript:hurf(\'wow\')" shape="rect" coords="230, 69, 253, 90"> 
+                <area href="Javascript:hurf(\'gunah\')" shape="rect" coords="261, 71, 286, 88"> 
+                <area href="Javascript:hurf(\'noon\')" shape="rect" coords="294, 68, 317, 90"> 
+                <area href="Javascript:hurf(\'mim\')" shape="rect" coords="326, 67, 350, 89"> 
+                <area href="Javascript:hurf(\'lam\')" shape="rect" coords="358, 68, 380, 91"> 
+                <area href="Javascript:hurf(\'gaf\')" shape="rect" coords="390, 69, 413, 90"> 
+                <area href="Javascript:hurf(\'kaf\')" shape="rect" coords="423, 68, 446, 89"> 
+                <area coords="392, 97, 443, 119" shape="rect" href="Javascript:hurf(\'entr\')"> 
+                <area href="Javascript:hurf(\'space\')" shape="rect" coords="296, 97, 380, 119"> 
+                <area href="Javascript:hurf(\'bspace\')" shape="rect" coords="199, 98, 285, 118"> 
+                <area href="Javascript:hurf(\'dash\')" shape="rect" coords="166, 98, 192, 118"> 
+                <area href="Javascript:hurf(\'Allah\')" shape="rect" coords="135, 98, 159, 117"> 
+                <area href="Javascript:hurf(\'pbuh\')" shape="rect" coords="102, 98, 129, 117"> 
+                <area href="Javascript:hurf(\'salam\')" shape="rect" coords="68, 99, 93, 117"> 
+				</map> 
+				
+				<img src="'.$keyboardImagePath.'" usemap="#FPMap0"><br> 
+				<td nowrap align=left> 
+				<input type="radio" onclick="LangEng(FCKeditorAPI.GetInstance(\''.$instanceName.'\'))" onChange="LangEng(FCKeditorAPI.GetInstance(\''.$instanceName.'\'))" name="R1" value="English" checked><strong>English</strong> 
+				<input type="radio" onclick="LangUrd(FCKeditorAPI.GetInstance(\''.$instanceName.'\'))" onChange="LangUrd(FCKeditorAPI.GetInstance(\''.$instanceName.'\'))" name="R1" value="Urdu"><strong>&#1575;&#1585;&#1583;&#1608;</strong>  
+				</td> 
+			</div>
+</div>
+
+</div>';  
+
+	return $withJquery;
+}

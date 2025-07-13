@@ -1,0 +1,12 @@
+a.pressToShow {
+font-weight:bold !important;
+text-decoration: none !important;
+font-size:15px !important;
+cursor: move;
+}
+
+.urdulinkhead, .urdulinkbody
+{
+width: 450;
+
+}

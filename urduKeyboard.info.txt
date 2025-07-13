@@ -1,0 +1,5 @@
+; $Id$
+name = Urdu Keyboard
+description = Integrates urdu keyboard in forms.
+package = Pro Drupal Development
+core = 6.x
